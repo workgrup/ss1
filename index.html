@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Contactos</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript">
+        	window.onload=function () {
+        		document.addEventListener("deviceready", onDeviceReady, false);
+        	}
+
+        	function onDeviceReady(){
+        		document.getElementById('btnSave').addEventListener('click', saveContact, false);
+        		        	}
+
+        	function saveContact() {
+        		 var fullName = document.getElementById("first").value +"  "+ document.getElementById("last").value;
+        		 var note = document.getElementById("note").value;
+
+        		 var theContact = navigator.contacts.create({"displayName" : fullName});
+        		 theContact = note;
+
+        		 theContact.save();
+        	
+
+
+        		        		  </script>
+
+        <form>
+        	<label for="first">First</label><br/>
+        	<input type="text" id="first"><br/>
+        	<label for="first" id="last"></label><br/>
+        	<input type="text" id="last" ><br/>
+        	<label for="note">Note</label><br/>
+        	<textarea id="note"></textarea><br/>
+        	<input type="button" value="Save Contact" id="btnSave" />
+        </form>
+
+
+
+
+    </body>
+</html>
